@@ -1,16 +1,14 @@
-import { ReactNode } from "react";
+import { ReactNode, ButtonHTMLAttributes } from "react";
 import { ButtonContainer } from "./styles";
 
-interface IPropsButton {
+interface IPropsButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  onClick?: () =>
-  void;
 }
 
-export function Button({ children, onClick }: IPropsButton) {
+export function Button({ children, ...rest }: IPropsButton) {
   return (
     <>
-      <ButtonContainer onClick={onClick}>{children}</ButtonContainer>
+      <ButtonContainer {...rest}>{children}</ButtonContainer>
     </>
   );
 }
