@@ -8,8 +8,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px ${(props) => props.theme['background']};
+    outline:none;
   }
+  
   body {
     background: ${(props) => props.theme['background']};
     color: ${(props) => props.theme['base-text']};
@@ -20,6 +21,11 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1rem;
     border: none;
+  }
+
+  a {
+    border: 0;
+
   }
   
 `
