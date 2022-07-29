@@ -5,6 +5,7 @@ import { Input } from "./components/Input";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 import { BrowserRouter } from "react-router-dom";
+import { Router } from "./Router";
 
 export function App() {
   function handleClick() {
@@ -13,12 +14,7 @@ export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter >
-        <Header />
-        <div className="App">
-          <h1>hello word</h1>
-          <Button onClick={handleClick}>Label</Button>
-          <Input placeholder="sadfas" />
-        </div>
+        <Router />
         <GlobalStyle />
       </BrowserRouter>
     </ThemeProvider>
