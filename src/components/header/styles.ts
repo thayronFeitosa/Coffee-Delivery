@@ -5,7 +5,6 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   justify-content: space-between;
 
   height: 104px;
@@ -36,7 +35,11 @@ export const ContainerMap = styled.div`
   font-size: 14px;
   line-height: 130%;
   
-  color: ${(props) => props.theme['purple-dark']};
+  color: ${({theme}) => theme['purple-dark']};
+
+  > svg {
+    color: ${({theme}) => theme['purple']};
+  }
 `
 
 export const ButtonShopping = styled.div`
@@ -52,6 +55,6 @@ export const ButtonShopping = styled.div`
 
 
   svg {
-    color:${({theme}) => theme['yellow']}
+    color:${({theme}) => theme['yellow-dark']}
   }
 `
