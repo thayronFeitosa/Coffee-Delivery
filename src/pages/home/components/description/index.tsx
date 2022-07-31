@@ -3,6 +3,7 @@ import coffeHome from "../../../../assets/coffeHome.svg";
 import { Activity, Coffee, Package, ShoppingCartSimple, Timer } from "phosphor-react";
 import { IconBackgroundCircle } from "../../../../components/IconBackgroundCircle";
 import { DescriptionIcon } from "./DescriptionIcon";
+import { CardCoffeeCatalog } from "../../../../components/cardCoffeeCatalog";
 export function DescriptionHome() {
   return (
     <Container>
@@ -19,8 +20,7 @@ export function DescriptionHome() {
       </div>
         </DescriptionContainer>
         <img src={coffeHome} alt="" />
-      </HeaderContainer>
-     
+      </HeaderContainer>     
     </Container>
   );
 }

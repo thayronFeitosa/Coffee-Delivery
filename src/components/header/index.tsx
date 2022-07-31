@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 
 import {
   HeaderContainer,
-  ButtonShopping,
   ContainerMap,
   ContainerMapShop,
 } from "./styles";
+import { ButtonShopping } from "../ButtonShopping";
 
 export function Header() {
   return (
@@ -20,12 +20,7 @@ export function Header() {
           <MapPin size={22} weight="fill" />
           <p>Porto Alegre, RS</p>
         </ContainerMap>
-
-        <ButtonShopping>
-          <NavLink to="/shop">
-            <ShoppingCart size={22} weight="fill" />
-          </NavLink>
-        </ButtonShopping>
+        <ButtonShopping size={0} />
       </ContainerMapShop>
     </HeaderContainer>
   );
