@@ -1,6 +1,14 @@
 import styled from 'styled-components';
+import introBackgroundImg from "../../../../assets/intro-background.png";
+import { rgba } from "polished";
 
 export const Container = styled.div`
+  width: 100%;
+  height: 34rem;
+
+  background: ${() => `url(${introBackgroundImg}) no-repeat center, linear-gradient(0deg, #FFFFFF 0%, ${rgba('#FAFAFA', 0.2)} 50%, #FAFAFA 100%)`};
+  background-size: cover;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +20,7 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 1848px;
+  width: 1150px;
   padding: 32px 160px;
 `;
 

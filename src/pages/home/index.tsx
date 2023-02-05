@@ -1,16 +1,18 @@
 import { CardCoffeeCatalog } from "../../components/cardCoffeeCatalog";
 import { Header } from "../../components/header";
 import { DescriptionHome } from "./components/description";
-import { Container, ContainerCoffee } from "./styles";
+import { Container, ContainerCoffee, TitleContainerCoffee } from "./styles";
 import allCoffees from '../../../teste.json';
 
 export function Home() {
 
   return (
     <>
-      <Header />
-      <DescriptionHome />
       <Container>
+        <Header />
+        <DescriptionHome />
+        
+          <TitleContainerCoffee><p>Nossos cafés</p></TitleContainerCoffee>
         <ContainerCoffee>
           {allCoffees.data.map((data) => (
             <CardCoffeeCatalog
