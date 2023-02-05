@@ -8,7 +8,7 @@ import {
 
 import { TypeCoffee } from "./components/description";
 import { Add } from "../add";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonShopping } from "../ButtonShopping";
 
 type CoffeeCategory = {
@@ -43,6 +43,10 @@ export function CardCoffeeCatalog({
   function decrement() {
     setValue(value - 1);
   }
+
+  useEffect(() => {
+
+  }, [value])
   
   return (
     <ContainerBackground>
@@ -62,7 +66,8 @@ export function CardCoffeeCatalog({
           <span className="dolar">R$</span>
           <span className="price">{price}</span>
           <Add increment={increment} decrement={decrement} value={value} />
-          <ButtonShopping size={value}
+          <ButtonShopping
+            size={value}
             backgroundContainer="#4B2995"
             colorIcon="#FFFF"
             isFeedback={false}

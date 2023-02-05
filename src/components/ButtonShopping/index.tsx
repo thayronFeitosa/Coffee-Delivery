@@ -1,8 +1,10 @@
+import { ButtonHTMLAttributes } from 'react'
+
 import { ShoppingCartSimple } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import { Container } from "./styles";
 
-interface ButtonShoppingProps {
+interface ButtonShoppingProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   backgroundContainer?: string;
   colorIcon?: string;
   size: number;

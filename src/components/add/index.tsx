@@ -6,11 +6,15 @@ interface AddProps {
   increment: () => void;
   decrement: () => void;
 }
+const VALUE_INVALID = 0;
 
 export function Add({ value, decrement, increment }: AddProps) {
   return (
     <Container>
-      <Button onClick={decrement}>
+      <Button
+        disabled={value <=VALUE_INVALID ? true : false} 
+        onClick={decrement}
+      >
         <Minus weight="fill" />
       </Button>
       <span>{value}</span>
