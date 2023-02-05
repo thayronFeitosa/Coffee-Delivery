@@ -11,9 +11,29 @@ import { Add } from "../add";
 import { useState } from "react";
 import { ButtonShopping } from "../ButtonShopping";
 
-const typesCoffee = [{ name: "Tradicional" }];
+type CoffeeCategory = {
+  name: string
+}
 
-export function CardCoffeeCatalog() {
+
+interface ICardCoffeeCatalogProps {
+  typesCoffeeCategory: CoffeeCategory[],
+  imageCoffee: string,
+  titleCoffee: string,
+  description: string,
+  price: number
+
+
+}
+
+export function CardCoffeeCatalog({
+  typesCoffeeCategory,
+  description,
+  imageCoffee,
+  price,
+  titleCoffee,
+  ...rest
+}: ICardCoffeeCatalogProps) {
   const [value, setValue] = useState(0);
 
   function increment() {
@@ -23,29 +43,31 @@ export function CardCoffeeCatalog() {
   function decrement() {
     setValue(value - 1);
   }
+  console.log(`/assets/${imageCoffee}`);
+  
   return (
     <ContainerBackground>
       <ContainerImage>
-        <img src={cafe} alt="" />
-        <TypeCoffee arrayName={typesCoffee} />
+      <img src={`/assets/${imageCoffee}`} />
+        <TypeCoffee arrayName={typesCoffeeCategory} />
       </ContainerImage>
       <Container>
         <DescriptionCoffee>
-          <p className="title">Expresso Tradicional</p>
+          <p className="title">{titleCoffee}</p>
           <p className="description">
-            O tradicional café feito com água quente e grãos moídos
+            {description}
           </p>
         </DescriptionCoffee>
 
         <HugContainer>
           <span className="dolar">R$</span>
-          <span className="price">9,90</span>
+          <span className="price">{price}</span>
           <Add increment={increment} decrement={decrement} value={value} />
           <ButtonShopping size={value}
             backgroundContainer="#4B2995"
             colorIcon="#FFFF"
             isFeedback={false}
-          
+
           />
         </HugContainer>
       </Container>

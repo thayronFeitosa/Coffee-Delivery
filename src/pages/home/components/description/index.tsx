@@ -1,5 +1,4 @@
 import { DescriptionContainer, Container, HeaderContainer } from "./styles";
-import coffeHome from "../../../../assets/coffeHome.svg";
 import { Activity, Coffee, Package, ShoppingCartSimple, Timer } from "phosphor-react";
 import { IconBackgroundCircle } from "../../../../components/IconBackgroundCircle";
 import { DescriptionIcon } from "./DescriptionIcon";
@@ -19,7 +18,7 @@ export function DescriptionHome() {
           <DescriptionIcon />
       </div>
         </DescriptionContainer>
-        <img src={coffeHome} alt="" />
+        <img src="/assets/coffeHome.svg" alt="" />
       </HeaderContainer>     
     </Container>
   );
