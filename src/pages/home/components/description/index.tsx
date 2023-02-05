@@ -1,8 +1,6 @@
 import { DescriptionContainer, Container, HeaderContainer } from "./styles";
-import { Activity, Coffee, Package, ShoppingCartSimple, Timer } from "phosphor-react";
-import { IconBackgroundCircle } from "../../../../components/IconBackgroundCircle";
 import { DescriptionIcon } from "./DescriptionIcon";
-import { CardCoffeeCatalog } from "../../../../components/cardCoffeeCatalog";
+
 export function DescriptionHome() {
   return (
     <Container>

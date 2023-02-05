@@ -37,7 +37,6 @@ export const DescriptionCoffee = styled.div`
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
-    margin-top: 16px;
     margin-bottom: 8px;
   }
 
@@ -56,7 +55,7 @@ export const HugContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 36px;
+  margin-top: 18px;
   
   .dolar {
     font-family: 'Roboto';
@@ -68,6 +67,7 @@ export const HugContainer = styled.div`
 
   .price {
     margin-left: 5px;
+    margin-right: 20px;
     font-family: 'Baloo 2';
     font-style: normal;
     font-weight: 800;

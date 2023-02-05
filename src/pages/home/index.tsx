@@ -2,10 +2,7 @@ import { CardCoffeeCatalog } from "../../components/cardCoffeeCatalog";
 import { Header } from "../../components/header";
 import { DescriptionHome } from "./components/description";
 import { Container, ContainerCoffee } from "./styles";
-import cafe from "../../assets/Capuccino.svg";
 import allCoffees from '../../../teste.json';
-
-const typesCoffeeCategory = [{ name: "Tradicional" },];
 
 export function Home() {
 

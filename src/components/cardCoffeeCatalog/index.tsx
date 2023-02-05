@@ -5,7 +5,7 @@ import {
   DescriptionCoffee,
   HugContainer,
 } from "./styles";
-import cafe from "../../assets/Capuccino.svg";
+
 import { TypeCoffee } from "./components/description";
 import { Add } from "../add";
 import { useState } from "react";
@@ -43,7 +43,6 @@ export function CardCoffeeCatalog({
   function decrement() {
     setValue(value - 1);
   }
-  console.log(`/assets/${imageCoffee}`);
   
   return (
     <ContainerBackground>
