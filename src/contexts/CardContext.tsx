@@ -9,6 +9,7 @@ interface CartContextProviderProps {
   children: ReactNode;
 }
 
+const NOT_ALREADY_EXIST = -1;
 const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems";
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
@@ -27,7 +28,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     );
 
     const newCart = produce(cartItems, (draft) => {
-      if (coffeeAlreadyExistsInCart < 0) {
+      if (coffeeAlreadyExistsInCart === NOT_ALREADY_EXIST) {
         draft.push(coffee);
       } else {
         draft[coffeeAlreadyExistsInCart].quantity += coffee.quantity;
@@ -43,7 +44,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     );
 
     const newCart = produce(cartItems, (draft) => {
-      if (coffeeAlreadyExistsInCart < 0) {
+      if (coffeeAlreadyExistsInCart === NOT_ALREADY_EXIST) {
         draft.push(coffee);
       } else {
         draft[coffeeAlreadyExistsInCart].quantity += coffee.quantity;
@@ -56,7 +57,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   useEffect(() => {
     localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
-  
+
   return (
     <CartContext.Provider
       value={{

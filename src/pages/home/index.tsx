@@ -22,6 +22,7 @@ export function Home() {
               price={Number(data.price)}
               titleCoffee={data.title}
               key={data.id}
+              id={data.id}
             />
           )
           )}

@@ -1,29 +1,26 @@
 import {
-  ContainerBackground,
-  ContainerImage,
-  Container,
-  DescriptionCoffee,
-  HugContainer,
+  Container, ContainerBackground,
+  ContainerImage, DescriptionCoffee,
+  HugContainer
 } from "./styles";
 
-import { TypeCoffee } from "./components/description";
+import { useState } from "react";
+import { useCart } from "../../hooks/useCart";
 import { Add } from "../add";
-import { useEffect, useState } from "react";
 import { ButtonShopping } from "../ButtonShopping";
+import { TypeCoffee } from "./components/description";
 
 type CoffeeCategory = {
   name: string
 }
-
 
 interface ICardCoffeeCatalogProps {
   typesCoffeeCategory: CoffeeCategory[],
   imageCoffee: string,
   titleCoffee: string,
   description: string,
-  price: number
-
-
+  price: number,
+  id: number
 }
 
 export function CardCoffeeCatalog({
@@ -32,26 +29,35 @@ export function CardCoffeeCatalog({
   imageCoffee,
   price,
   titleCoffee,
-  ...rest
+  id
 }: ICardCoffeeCatalogProps) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
+  const { addCoffeeToCart } = useCart();
 
   function increment() {
-    setValue(value + 1);
+    setValue((state) => state + 1);
+  }
+
+  function addShoping() {
+    addCoffeeToCart({
+      id: id,
+      description: description,
+      name: titleCoffee,
+      photo: imageCoffee,
+      price: price,
+      quantity: value,
+      tags: typesCoffeeCategory
+    })
   }
 
   function decrement() {
-    setValue(value - 1);
+    setValue((state) => state - 1);
   }
 
-  useEffect(() => {
-
-  }, [value])
-  
   return (
     <ContainerBackground>
       <ContainerImage>
-      <img src={`/assets/${imageCoffee}`} />
+        <img src={`/assets/${imageCoffee}`} />
         <TypeCoffee arrayName={typesCoffeeCategory} />
       </ContainerImage>
       <Container>
@@ -71,6 +77,7 @@ export function CardCoffeeCatalog({
             backgroundContainer="#4B2995"
             colorIcon="#FFFF"
             isFeedback={false}
+            handleAddShopping={addShoping}
 
           />
         </HugContainer>
