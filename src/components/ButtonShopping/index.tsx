@@ -9,7 +9,7 @@ interface ButtonShoppingProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   colorIcon?: string;
   size?: number;
   isFeedback?: boolean;
-  handleAddShopping: () => void;
+  handleAddShopping?: () => void;
 }
 
 export function ButtonShopping({
@@ -22,7 +22,7 @@ export function ButtonShopping({
   return (
     <Container backgroundContainer={backgroundContainer} colorIcon={colorIcon}>
       {isFeedback && <span>{size}</span>}
-      <NavLink to="/shop">
+      <NavLink to="/checkout">
         <ShoppingCartSimple size={22} weight="fill" onClick={handleAddShopping} />
       </NavLink>
     </Container>
