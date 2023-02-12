@@ -1,4 +1,4 @@
-import { MapPinLine, CurrencyDollar } from "phosphor-react";
+import { MapPinLine, CurrencyDollar, CreditCard, Bank, Money } from "phosphor-react";
 import { Header } from "../../components/header";
 import { InputContainer } from "../../components/Input/styles";
 import { TitleComponent } from "../../components/TitleComponent";
@@ -75,14 +75,14 @@ export function Checkout() {
               </TitleComponent>
               <div id="raio">
                 <PaymentMethodInput
-                  icon={<CurrencyDollar weight="regular" />}
+                  icon={<CreditCard weight="regular" />}
                   title="Cartão de Crédito"
                   key={'label'}
                   id={'key'}
                   label="Cartão de crédito"
                 />
                 <PaymentMethodInput
-                  icon={<CurrencyDollar weight="regular" />}
+                  icon={<Bank weight="regular" />}
                   title="Cartão de débito"
                   key={'label'}
                   id={'key'}
@@ -90,7 +90,7 @@ export function Checkout() {
                 />
 
                 <PaymentMethodInput
-                  icon={<CurrencyDollar weight="regular" />}
+                  icon={<Money weight="regular" />}
                   title="dinheiro"
                   key={'label'}
                   id={'key'}
