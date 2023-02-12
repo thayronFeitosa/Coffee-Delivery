@@ -1,33 +1,112 @@
+import { MapPinLine, CurrencyDollar } from "phosphor-react";
 import { Header } from "../../components/header";
 import { InputContainer } from "../../components/Input/styles";
-import { Container, ContainerOrderAndPayment, Order, OrderDetails, Payment } from "./styles";
+import { TitleComponent } from "../../components/TitleComponent";
+import { PaymentMethodInput } from "./components/PaymentMethodInput";
+import * as  StyleComponennts from "./styles";
 
 export function Checkout() {
   return (
     <>
-      <Container>
+      <StyleComponennts.Container>
         <Header />
-      </Container>
+      </StyleComponennts.Container>
 
-      <Container>
-        <ContainerOrderAndPayment>
+      <StyleComponennts.Container>
+        <StyleComponennts.ContainerOrderAndPayment>
 
-          <Order>
-            <InputContainer />
-            <InputContainer />
-          </Order>
+          <StyleComponennts.Order>
+            <StyleComponennts.ContainerDescription>
+              <TitleComponent
+                Title="Endereço de Entrega"
+                Description="Informe o endereço onde deseja receber seu pedido"
+                colorSvg="#C47F17"
+              > <MapPinLine weight="regular" /></TitleComponent>
+            </StyleComponennts.ContainerDescription>
+            <form action="">
+              <div id="cep">
+                <InputContainer
+                  placeholder="CEP"
+                />
+              </div>
 
-          <Payment>
+              <InputContainer
+                placeholder="Rua"
+              />
+              <div id="p2-address">
+                <InputContainer
+                  id="number"
+                  placeholder="Número"
+                />
+                <InputContainer
+                  id="complement"
+                  placeholder="Complemento"
+                />
 
-            <InputContainer />
-            <InputContainer />
-          </Payment>
+              </div>
 
-        </ContainerOrderAndPayment>
+              <div id="p3-address">
+                <InputContainer
+                  id="district"
+                  placeholder="Bairro"
+                />
+                <InputContainer
+                  id="city"
+                  placeholder="Cidade"
+                />
 
-        <OrderDetails>ASDFASD</OrderDetails>
+                <InputContainer
+                  id="uf"
+                  placeholder="UF"
+                />
+              </div>
 
-      </Container>
+            </form>
+
+          </StyleComponennts.Order>
+
+          <StyleComponennts.Payment>
+            <StyleComponennts.ContainerDescription>
+              <TitleComponent
+                Title="Pagamento"
+                Description="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
+                colorSvg="#8047F8"
+              > <CurrencyDollar weight="regular" />
+              </TitleComponent>
+              <div id="raio">
+                <PaymentMethodInput
+                  icon={<CurrencyDollar weight="regular" />}
+                  title="Cartão de Crédito"
+                  key={'label'}
+                  id={'key'}
+                  label="Cartão de crédito"
+                />
+                <PaymentMethodInput
+                  icon={<CurrencyDollar weight="regular" />}
+                  title="Cartão de débito"
+                  key={'label'}
+                  id={'key'}
+                  label="Cartão de débito"
+                />
+
+                <PaymentMethodInput
+                  icon={<CurrencyDollar weight="regular" />}
+                  title="dinheiro"
+                  key={'label'}
+                  id={'key'}
+                  label="dinheiro"
+                />
+              </div>
+
+            </StyleComponennts.ContainerDescription>
+
+          </StyleComponennts.Payment>
+
+        </StyleComponennts.ContainerOrderAndPayment>
+
+        <StyleComponennts.OrderDetails>ASDFASD</StyleComponennts.OrderDetails>
+
+      </StyleComponennts.Container>
     </>
   )
 }
