@@ -11,7 +11,7 @@ interface TypeCoffeeProps {
 export function TypeCoffee({ arrayName }: TypeCoffeeProps) {
   return (
     <Container>
-      {arrayName.map((coffe) => (<span>{coffe.name}</span>))}
+      {arrayName.map((coffe, i) => (<span key={i}>{coffe.name}</span>))}
     </Container>
   );
 }
