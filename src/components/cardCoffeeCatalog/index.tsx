@@ -8,9 +8,9 @@ import {
 
 import { TypeCoffee } from "./components/description";
 import { Add } from "../add";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { ButtonShopping } from "../ButtonShopping";
-import { OrderCoffeeContext } from "../../context/OrderCoffeeContext";
+import { OrderCoffeeContext, OrderCoffeeStorage, STORAGE_COFFEE_DELIVERY_LIST_COFFEE } from "../../context/OrderCoffeeContext";
 
 type CoffeeCategory = {
   name: string
@@ -37,6 +37,28 @@ export function CardCoffeeCatalog({
 }: ICardCoffeeCatalogProps) {
   const { buyCoffee } = useContext(OrderCoffeeContext)
   const [quantityCoffee, setQuantityCoffee] = useState(0);
+  const [initPage, setInitPage] = useState<boolean>(false)
+
+  const loadListTask = useCallback(() => {
+    if (!initPage) {
+      setInitPage(true)
+      const listCoffeeStorage = localStorage.getItem(STORAGE_COFFEE_DELIVERY_LIST_COFFEE);
+      if(listCoffeeStorage) {
+        const resultTest: OrderCoffeeStorage[] = JSON.parse(listCoffeeStorage)
+        resultTest.map(((data) => {
+          if(data.id === id){
+            console.log(data.id);
+            
+            setQuantityCoffee(data.quantity)          }
+        }))        
+      }
+
+      
+    }
+  }, [initPage === false]);
+
+  useEffect(() => {
+  }, [loadListTask()]);
 
   function increment() {
     setQuantityCoffee(quantityCoffee + 1);
@@ -44,7 +66,6 @@ export function CardCoffeeCatalog({
 
   function decrement() {
     setQuantityCoffee(quantityCoffee - 1);
-
   }
 
   function addShoppingCart() {
@@ -58,11 +79,8 @@ export function CardCoffeeCatalog({
       titleCoffee,
       quantity: quantityCoffee
     }
-
-    if (quantityCoffee !== 0) {
-      buyCoffee(dataAddCoffee)
-    }
-
+    
+    buyCoffee(dataAddCoffee)
   }
 
   useEffect(() => {
