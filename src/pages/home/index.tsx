@@ -16,6 +16,7 @@ export function Home() {
         <ContainerCoffee>
           {allCoffees.data.map((data) => (
             <CardCoffeeCatalog
+              id={data.id}
               typesCoffeeCategory={data.category}
               description={data.description}
               imageCoffee={data.image}

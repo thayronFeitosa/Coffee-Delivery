@@ -6,6 +6,8 @@ import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 import { BrowserRouter } from "react-router-dom";
 import { Router } from "./Router";
+import { OrderCoffeeContextProvider } from "./context/OrderCoffeeContext";
+
 
 export function App() {
   function handleClick() {
@@ -14,7 +16,9 @@ export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter >
-        <Router />
+        <OrderCoffeeContextProvider>
+          <Router />
+        </OrderCoffeeContextProvider>
         <GlobalStyle />
       </BrowserRouter>
     </ThemeProvider>

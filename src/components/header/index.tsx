@@ -7,8 +7,14 @@ import {
   ContainerMapShop,
 } from "./styles";
 import { ButtonShopping } from "../ButtonShopping";
+import { useContext } from "react";
+import { OrderCoffeeContext } from "../../context/OrderCoffeeContext";
 
 export function Header() {
+  const { sumQuantityCoffee } = useContext(OrderCoffeeContext)
+
+  const account = sumQuantityCoffee()
+  
   return (
     <HeaderContainer>
       <NavLink to="/">
@@ -17,9 +23,9 @@ export function Header() {
       <ContainerMapShop>
         <ContainerMap>
           <MapPin size={22} weight="fill" />
-          <p>Porto Alegre, RS</p>
+          <p>Porto Alegre, RS {sumQuantityCoffee()}</p>
         </ContainerMap>
-        <ButtonShopping size={0} />
+        <ButtonShopping size={account} />
       </ContainerMapShop>
     </HeaderContainer>
   );

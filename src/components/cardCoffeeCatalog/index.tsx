@@ -8,8 +8,9 @@ import {
 
 import { TypeCoffee } from "./components/description";
 import { Add } from "../add";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ButtonShopping } from "../ButtonShopping";
+import { OrderCoffeeContext } from "../../context/OrderCoffeeContext";
 
 type CoffeeCategory = {
   name: string
@@ -17,16 +18,16 @@ type CoffeeCategory = {
 
 
 interface ICardCoffeeCatalogProps {
+  id: number,
   typesCoffeeCategory: CoffeeCategory[],
   imageCoffee: string,
   titleCoffee: string,
   description: string,
   price: number
-
-
 }
 
 export function CardCoffeeCatalog({
+  id,
   typesCoffeeCategory,
   description,
   imageCoffee,
@@ -34,24 +35,44 @@ export function CardCoffeeCatalog({
   titleCoffee,
   ...rest
 }: ICardCoffeeCatalogProps) {
-  const [value, setValue] = useState(0);
+  const { buyCoffee } = useContext(OrderCoffeeContext)
+  const [quantityCoffee, setQuantityCoffee] = useState(0);
 
   function increment() {
-    setValue(value + 1);
+    setQuantityCoffee(quantityCoffee + 1);
   }
 
   function decrement() {
-    setValue(value - 1);
+    setQuantityCoffee(quantityCoffee - 1);
+
+  }
+
+  function addShoppingCart() {
+
+    const dataAddCoffee = {
+      id: id,
+      typesCoffeeCategory,
+      description,
+      imageCoffee,
+      price,
+      titleCoffee,
+      quantity: quantityCoffee
+    }
+
+    if (quantityCoffee !== 0) {
+      buyCoffee(dataAddCoffee)
+    }
+
   }
 
   useEffect(() => {
 
-  }, [value])
-  
+  }, [quantityCoffee])
+
   return (
     <ContainerBackground>
       <ContainerImage>
-      <img src={`/assets/${imageCoffee}`} />
+        <img src={`/assets/${imageCoffee}`} />
         <TypeCoffee arrayName={typesCoffeeCategory} />
       </ContainerImage>
       <Container>
@@ -65,12 +86,13 @@ export function CardCoffeeCatalog({
         <HugContainer>
           <span className="dolar">R$</span>
           <span className="price">{price}</span>
-          <Add increment={increment} decrement={decrement} value={value} />
+          <Add increment={increment} decrement={decrement} value={quantityCoffee} />
           <ButtonShopping
-            size={value}
+            size={quantityCoffee}
             backgroundContainer="#4B2995"
             colorIcon="#FFFF"
             isFeedback={false}
+            addShoppingCart={addShoppingCart}
 
           />
         </HugContainer>
