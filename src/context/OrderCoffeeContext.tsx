@@ -12,6 +12,7 @@ interface OrderCoffeeContextTypes {
   orderCoffee: OrderCoffeeStorage[];
   buyCoffee: (coffee: OrderCoffeeStorage) => void
   sumQuantityCoffee: () => number
+  totalSumPriceCoffee: () => number
 }
 
 interface OrderCoffeeContextProviderProps {
@@ -83,9 +84,17 @@ export function OrderCoffeeContextProvider({ children }: OrderCoffeeContextProvi
   }
 
   function sumQuantityCoffee(): number {
-
-
     return quantityCoffee
+  }
+
+  function totalSumPriceCoffee(): number {
+    let valorTotal = 0;
+
+     orderCoffee.forEach((coffee: OrderCoffeeStorage) => {
+      valorTotal += coffee.price * coffee.quantity;
+    });
+
+    return valorTotal;
   }
 
 
@@ -94,7 +103,8 @@ export function OrderCoffeeContextProvider({ children }: OrderCoffeeContextProvi
       value={{
         orderCoffee,
         buyCoffee,
-        sumQuantityCoffee
+        sumQuantityCoffee,
+        totalSumPriceCoffee
       }}
     >
       {children}

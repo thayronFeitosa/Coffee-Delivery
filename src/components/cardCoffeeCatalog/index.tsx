@@ -43,17 +43,17 @@ export function CardCoffeeCatalog({
     if (!initPage) {
       setInitPage(true)
       const listCoffeeStorage = localStorage.getItem(STORAGE_COFFEE_DELIVERY_LIST_COFFEE);
-      if(listCoffeeStorage) {
+      if (listCoffeeStorage) {
+
+
+
         const resultTest: OrderCoffeeStorage[] = JSON.parse(listCoffeeStorage)
         resultTest.map(((data) => {
-          if(data.id === id){
-            console.log(data.id);
-            
-            setQuantityCoffee(data.quantity)          }
-        }))        
+          if (data.id === id) setQuantityCoffee(data.quantity)
+        }))
       }
 
-      
+
     }
   }, [initPage === false]);
 
@@ -79,7 +79,7 @@ export function CardCoffeeCatalog({
       titleCoffee,
       quantity: quantityCoffee
     }
-    
+
     buyCoffee(dataAddCoffee)
   }
 

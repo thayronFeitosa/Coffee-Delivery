@@ -3,6 +3,8 @@ import { ButtonContainer } from "./styles";
 
 interface IPropsButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
+  w?:string
+  h?:string;
 }
 
 export function Button({ children, ...rest }: IPropsButton) {
