@@ -23,7 +23,7 @@ export function Header() {
       <ContainerMapShop>
         <ContainerMap>
           <MapPin size={22} weight="fill" />
-          <p>Porto Alegre, RS {sumQuantityCoffee()}</p>
+          <p>Porto Alegre, RS </p>
         </ContainerMap>
         <ButtonShopping size={account} />
       </ContainerMapShop>

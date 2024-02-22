@@ -143,7 +143,7 @@ export const Payment = styled.div`
 
 export const OrderDetails = styled.div`
   width: 448px;
-  height: 498px;
+  /* height: 498px; */
   border-radius: 6px 44px;
   margin-left: 32px;
 
@@ -154,9 +154,51 @@ export const OrderDetails = styled.div`
 export const BackgroundStyle = styled.div`
   background: #F3F2F2;
   min-width: 448px;
-  min-height: 498px;
+  min-height: 498px; /* Agora a altura é dinâmica e ajusta conforme o conteúdo */
   border-radius: 6px 44px;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center; */
+  /* justify-content: center; */ /* Ajuste conforme necessário */
 `;
+
+export const ResumePaymentCoffees = styled.div`
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50PX;
+
+  .classPayment{
+    display: flex;
+    align-items: center;
+    width: 368px;
+
+    justify-content: space-between;
+  }
+
+
+  #total-items {
+
+  }
+
+  #delivery{
+
+  }
+
+  #total-value {
+
+  }
+
+  #payment-button {
+    margin-top: 20px;
+    button {
+      width: 368px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
+
+  }
+`

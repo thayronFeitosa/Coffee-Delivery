@@ -8,7 +8,7 @@ import { Title } from "./components/Title";
 import * as  StyleComponennts from "./styles";
 import { Button } from "../../components/Button";
 import { useContext } from "react";
-import { OrderCoffeeContext, OrderCoffeeStorage,  } from "../../context/OrderCoffeeContext";
+import { OrderCoffeeContext, OrderCoffeeStorage, } from "../../context/OrderCoffeeContext";
 
 export function Checkout() {
   const { orderCoffee, buyCoffee, sumQuantityCoffee, totalSumPriceCoffee } = useContext(OrderCoffeeContext)
@@ -153,18 +153,32 @@ export function Checkout() {
                   title={data.titleCoffee}
                   total={data.quantity}
                 />
-                <hr/>
+                <hr />
               </StyleComponennts.ContainerCoffee>
             ))}
 
-            <div>
-              Total de itens:  R$ {totalSumPriceCoffee().toFixed(2)}<br />
-              Entregra: R$ {(sumQuantityCoffee() * 0.5).toFixed(2)} <br />
-              Total: R$ {(totalSumPriceCoffee() + (sumQuantityCoffee() * 0.5)) }
-            </div>
+            <StyleComponennts.ResumePaymentCoffees>
+              <div className="classPayment">
+                <p id="total-items">Total de itens: </p>
+                <p>R$ {totalSumPriceCoffee().toFixed(2)}</p>
+              </div>
 
+              <div className="classPayment">
+                <p id="delivery">Entregra: </p>
+                <p>R$ {(sumQuantityCoffee() * 0.5).toFixed(2)} </p>
+              </div>
 
-            <Button w="368px" h="46px">confirmar pedido</Button>
+              <div className="classPayment">
+                <p id="total-value">Total:</p>
+                <p>R$ {(totalSumPriceCoffee() + (sumQuantityCoffee() * 0.5))} </p>
+              </div>
+
+              <div id="payment-button">
+                <Button>Confirmar pedido</Button>
+              </div>
+            </StyleComponennts.ResumePaymentCoffees>
+
+      
 
           </StyleComponennts.BackgroundStyle>
 
